@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebTourProject.Models.SACH>
+@{
+    ViewBag.Title = "Home Page";
+}
+<style type="text/css">
+    #products {
+        width: 960px;
+    }
+
+    #product {
+        width: 222px;
+        height: 320px;
+        float: left;
+        display: block;
+        padding: 5px;
+        margin: 5px;
+        text-align: left;
+        background-color: #fff;
+        border: 1px solid #999;
+    }
+</style>
+<h1 style="color:blue">Hãy cùng chúng tôi khám phá Việt Nam xinh đẹp nhé</h1>
+<br />
+<div id="products">
+    @foreach (var sach in Model)
+    {
+        <div id="product">
+            <a href="@Url.Action("Details","Tour",new {id = sach.Masach})" />
+            <h2>@sach.Tensach</h2> <br /> <hr />
+            <img alt="@sach.Tensach" src="~/wwwroot/images/@sach.Anhbia" width="215" height="280" />
+        </div>
+    }
+    <div style="clear:left"></div>
+</div>
